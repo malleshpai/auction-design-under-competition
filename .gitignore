@@ -1,0 +1,32 @@
+# OS / editor
+.DS_Store
+*~
+*.swp
+
+# Lean / Lake build & packages
+lean/.lake/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+
+# Local working archives, internal reviews, companion notes, legacy scripts/figs
+archive/
+paper/review.md
+paper/fable-review.md
+paper/ex-ante-competing-auctions.*
+paper/code/
+paper/figs/old/
+paper/figs/fig-iron.pdf
+paper/figs/fig-parabola.pdf
+paper/figs/fig-wm.pdf
+slides/figs/fig-wm.pdf

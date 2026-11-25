@@ -1,0 +1,292 @@
+%% paislidestempo.sty -- Mallesh Pai's seminar format (from paislidesrice.sty), recoloured for Tempo.
+%% Works with pdflatex. Malmoe theme, small-caps serif structure, framed blocks.
+\usetheme{Malmoe}
+\usepackage{tikz}
+\usetikzlibrary{svg.path,arrows.meta}
+\definecolor{Page}{HTML}{F5F5F5}
+\definecolor{Card}{HTML}{FFFFFF}
+\definecolor{Ink}{HTML}{000000}
+\definecolor{InkTwo}{HTML}{6C6C6C}
+\definecolor{LineStrong}{HTML}{939393}
+\definecolor{Line}{HTML}{C4C4C4}
+\definecolor{LineFaint}{HTML}{E1E1E1}
+\definecolor{Tint}{HTML}{EBEBEB}
+\definecolor{Pos}{HTML}{13A963}
+\definecolor{Warn}{HTML}{E06F12}
+\definecolor{Neg}{HTML}{EB3417}
+\definecolor{PosDark}{HTML}{0B7A46}
+\definecolor{NegDark}{HTML}{B3260F}
+%% aliases so that old decks compile unchanged
+\colorlet{RiceBlue}{Ink}\colorlet{RiceGray}{InkTwo}\colorlet{RiceLGray}{LineFaint}\colorlet{RiceLight}{Card}
+\setbeamercolor*{palette primary}{bg=Ink,fg=white}
+\setbeamercolor*{palette secondary}{bg=Ink!85,fg=white}
+\setbeamercolor*{palette tertiary}{bg=Ink!70,fg=white}
+\setbeamercolor*{palette quaternary}{bg=InkTwo,fg=white}
+\usecolortheme[named=Ink]{structure}
+\setbeamercolor{background canvas}{bg=Page}
+\setbeamercolor{frametitle}{bg=Page,fg=Ink}
+\setbeamercolor{block title}{fg=Ink}
+\setbeamercolor{block title alerted}{fg=NegDark}
+\setbeamercolor{block title example}{fg=PosDark}
+\usefonttheme{structuresmallcapsserif}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\newcommand{\tempomark}[1][4mm]{%
+  \tikz[baseline={(0,-0.82*#1)},scale={(#1)/(40pt)},yscale=-1]{\fill[Ink,rounded corners=3pt] (0pt,0pt) rectangle (40pt,40pt);
+  \fill[Card] svg "M17.6429 28.1631H13.1933L17.3173 15.4122H12.043L13.1933 11.6748H27.8878L26.7374 15.4122H21.7452L17.6429 28.1631Z";}}
+\newcommand{\tempowordmark}[1][5mm]{%
+  \tikz[scale={(#1)/(46pt)},yscale=-1]{\fill[Ink]
+  svg "M15.4218 45.2859H3.16805L14.5252 10.771H0L3.16805 0.654591H43.6354L40.4674 10.771H26.7192L15.4218 45.2859Z"
+  svg "M61.0219 45.2859H31.9715L46.5565 0.654591H75.4874L72.7377 9.16429H55.9411L52.8926 18.7451H69.1513L66.4016 27.1358H50.0832L47.0347 36.7762H63.7118L61.0219 45.2859Z"
+  svg "M74.1704 45.2859H64.4272L79.072 0.654591H95.3307L94.7927 24.7555L110.633 0.654591H128.446L113.861 45.2859H101.667L111.35 15.2937H111.171L91.266 45.2859H84.0333L84.3321 14.9366H84.2126L74.1704 45.2859Z"
+  svg "M142.162 8.92626L137.44 23.3273H138.755C141.743 23.3273 144.234 22.633 146.226 21.2445C148.219 19.8163 149.514 17.793 150.112 15.1746C150.63 12.9133 150.351 11.3066 149.275 10.3545C148.199 9.40233 146.406 8.92626 143.895 8.92626H142.162ZM130.326 45.2859H118.073L132.658 0.654591H147.541C150.969 0.654591 153.917 1.21 156.388 2.32083C158.899 3.39198 160.732 4.9392 161.887 6.96248C163.083 8.9461 163.481 11.2669 163.083 13.925C162.565 17.4161 161.21 20.4907 159.018 23.1488C156.826 25.8068 153.977 27.8698 150.47 29.3376C147.003 30.7658 143.118 31.4799 138.814 31.4799H134.809L130.326 45.2859Z"
+  svg "M192.29 42.4295C188.225 44.8098 183.902 46 179.319 46H179.2C175.135 46 171.708 45.1074 168.918 43.3221C166.169 41.4972 164.196 39.0375 163.001 35.9431C161.845 32.8486 161.566 29.4567 162.164 25.7671C162.921 21.1255 164.654 16.8409 167.364 12.9133C170.074 8.98577 173.461 5.85166 177.526 3.511C181.591 1.17033 185.934 0 190.557 0H190.676C194.9 0 198.387 0.892626 201.137 2.67788C203.926 4.46313 205.859 6.90298 206.935 9.99741C208.051 13.0522 208.29 16.4838 207.652 20.2924C206.895 24.7753 205.162 29.0004 202.452 32.9677C199.742 36.8952 196.355 40.0492 192.29 42.4295ZM175.374 34.7529C176.45 36.7762 178.323 37.7878 180.993 37.7878H181.112C183.304 37.7878 185.336 36.9746 187.209 35.348C189.122 33.6818 190.736 31.4601 192.051 28.6831C193.406 25.906 194.402 22.8116 195.04 19.3997C195.638 16.0673 195.398 13.3894 194.322 11.3661C193.247 9.30315 191.394 8.27167 188.763 8.27167H188.644C186.612 8.27167 184.639 9.10479 182.726 10.771C180.853 12.4373 179.219 14.6787 177.825 17.4955C176.43 20.3122 175.414 23.367 174.776 26.6598C174.139 29.9922 174.338 32.69 175.374 34.7529Z";}}
+
+
+\newcommand{\FullLogo}{\tempowordmark[4mm]}
+
+
+\setbeamercolor{math text}{fg=Ink}
+
+\setbeamertemplate{items}[default]
+
+
+\setbeamerfont{title}{size=\Large,series=\scseries}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{author}{size=\large,series=\scseries}
+\setbeamertemplate{headline}{}
+
+\makeatletter
+\newcommand\beamerboxesframed[2][]{%
+  \global\let\beamer@firstlineitemizeunskip=\relax%
+  \vbox\bgroup%
+  \setkeys{beamerboxes}{upper=block title,lower=block body,width=\textwidth}%
+  \setkeys{beamerboxes}{#1}%
+  {%d
+    \usebeamercolor{\bmb@lower}%
+    \globalcolorstrue%
+    \colorlet{lower.bg}{RiceLight}%
+  }%
+  {%
+    \usebeamercolor{\bmb@upper}%
+    \globalcolorstrue%
+    \colorlet{upper.bg}{RiceLGray}%
+  }%
+  %
+  % Typeset head
+  %
+  \vskip4bp
+  \setbox\bmb@box=\hbox{%
+    \begin{minipage}[b]{\bmb@width}%
+      \usebeamercolor[fg]{\bmb@upper}%
+      #2%
+    \end{minipage}}%
+  \ifdim\wd\bmb@box=0pt%
+    \setbox\bmb@box=\hbox{}%
+    \ht\bmb@box=0pt%
+    \bmb@prevheight=-4.5pt%
+  \else%
+    \wd\bmb@box=\bmb@width%
+    \bmb@temp=\dp\bmb@box%
+    \ifdim\bmb@temp<1.5pt%
+      \bmb@temp=1.5pt%
+    \fi%
+    \setbox\bmb@box=\hbox{\raise\bmb@temp\hbox{\box\bmb@box}}%
+    \dp\bmb@box=0pt%
+    \bmb@prevheight=\ht\bmb@box%
+  \fi%
+  \bmb@temp=\bmb@width%
+  \bmb@dima=\bmb@temp\advance\bmb@dima by2.2bp%
+  \bmb@dimb=\bmb@temp\advance\bmb@dimb by4bp%
+\hbox{%
+    \begin{pgfpicture}{0bp}{+-\ht\bmb@box}{0bp}{+-\ht\bmb@box}
+      \ifdim\wd\bmb@box=0pt%
+        \color{lower.bg}%
+      \else%
+        \color{upper.bg}%
+      \fi%
+      \pgfpathqmoveto{-4bp}{-1bp}
+      \pgfpathqcurveto{-4bp}{1.2bp}{-2.2bp}{3bp}{0bp}{3bp}
+      \pgfpathlineto{\pgfpoint{\bmb@temp}{3bp}}
+      \pgfpathcurveto%
+      {\pgfpoint{\bmb@dima}{3bp}}%
+      {\pgfpoint{\bmb@dimb}{1.2bp}}%
+      {\pgfpoint{\bmb@dimb}{-1bp}}%
+      \bmb@dima=-\ht\bmb@box%
+      \advance\bmb@dima by-2pt%
+      \pgfpathlineto{\pgfpoint{\bmb@dimb}{\bmb@dima}}
+      \pgfpathlineto{\pgfpoint{-4bp}{\bmb@dima}}
+      \pgfpathclose
+      \pgfsetstrokecolor{Line}\pgfusepath{stroke, fill}
+    \end{pgfpicture}%
+    \copy\bmb@box%
+  }%
+  \nointerlineskip%
+  \ifdim\wd\bmb@box=0pt
+  \else
+    \vskip2.4pt%
+  \fi%
+  \nointerlineskip%
+  \setbox\bmb@colorbox=\hbox{{\pgfpicturetrue\pgfsetcolor{lower.bg}}}%
+  \setbox\bmb@box=\hbox\bgroup\begin{minipage}[b]{\bmb@width}%
+    \vskip2pt%
+    \usebeamercolor[fg]{\bmb@lower}%
+    \colorlet{beamerstructure}{upper.bg}%
+    \colorlet{structure}{upper.bg}%
+    %\color{.}%
+}
+
+\def\endbeamerboxesframed{%
+  \end{minipage}\egroup%
+  \wd\bmb@box=\bmb@width%
+  \bmb@temp=\dp\bmb@box%
+  \advance\bmb@temp by.5pt%
+  \setbox\bmb@box=\hbox{\raise\bmb@temp\hbox{\box\bmb@box}}%
+  \dp\bmb@box=0pt%
+  \bmb@temp=\wd\bmb@box%
+  \bmb@dima=\bmb@temp\advance\bmb@dima by2.2bp%
+  \bmb@dimb=\bmb@temp\advance\bmb@dimb by4bp%
+  \hbox{%
+    \begin{pgfpicture}{0bp}{0bp}{0bp}{0bp}
+      \unhbox\bmb@colorbox%
+      \pgfpathmoveto{\pgfpoint{-4bp}{\ht\bmb@box}}
+      \pgfpathlineto{\pgfpoint{-4bp}{1bp}}
+      \pgfpathqcurveto{-4bp}{-1.2bp}{-2.2bp}{-3bp}{0bp}{-3bp}
+      \pgfpathlineto{\pgfpoint{\the\bmb@temp}{-3bp}}
+      \pgfpathcurveto%
+      {\pgfpoint{\the\bmb@dima}{-3bp}}%
+      {\pgfpoint{\the\bmb@dimb}{-1.2bp}}%
+      {\pgfpoint{\the\bmb@dimb}{1bp}}%
+      {
+      \bmb@dima=\ht\bmb@box%
+      \pgfpathlineto{\pgfpoint{\bmb@dimb}{\bmb@dima}}
+      \pgfsetstrokecolor{Line}\pgfusepath{stroke, fill}
+      }
+    \end{pgfpicture}%
+    \box\bmb@box%
+  }%
+  \vskip2bp%
+  \egroup% of \vbox\bgroup
+}
+\makeatother
+
+\defbeamertemplateparent{blocks}[framed]{block begin,block end,%
+  block alerted begin,block alerted end,%
+  block example begin,block example end}[1][]
+{[#1]}
+
+\defbeamertemplate{block begin}{framed}[1][]
+{
+  \par\vskip\medskipamount%
+  \begin{beamerboxesframed}[upper=block title,lower=block body,#1]%
+    {\raggedright\usebeamerfont*{block title}\insertblocktitle}%
+    \raggedright%
+    \usebeamerfont{block body}%
+}
+\defbeamertemplate{block end}{framed}[1][]
+{\end{beamerboxesframed}\vskip\smallskipamount}
+
+\defbeamertemplate{block alerted begin}{framed}[1][]
+{
+  \par\vskip\medskipamount%
+  \begin{beamerboxesframed}[upper=block title alerted,lower=block body alerted,#1]%
+    {\raggedright\usebeamerfont*{block title alerted}\insertblocktitle}%
+    \raggedright%
+    \usebeamerfont{block body alerted}%
+}%
+\defbeamertemplate{block alerted end}{framed}[1][]
+{\end{beamerboxesframed}\vskip\smallskipamount}
+
+\defbeamertemplate{block example begin}{framed}[1][]
+{
+  \par\vskip\medskipamount%
+  \begin{beamerboxesframed}[upper=block title example,lower=block body example,#1]
+    {\raggedright\usebeamerfont*{block title example}\insertblocktitle}%
+    \raggedright%
+    \usebeamerfont{block body alerted}%
+}%
+\defbeamertemplate{block example end}{framed}[1][]
+{\end{beamerboxesframed}}
+
+\setbeamertemplate{blocks}[framed]
+
+
+
+\titlegraphic{\tempowordmark[4.2mm]\vspace{1em}}
+
+\setbeamertemplate{title page}
+{
+  \begin{centering}
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[sep=8pt,center]{authordate}
+      \usebeamerfont{author}\insertauthor\par%
+      \ifx\insertinstitute\@empty%
+      \else%
+      	\vskip0.25em%
+		{\usebeamerfont{institute}\insertinstitute\par}%
+	  \fi%	
+      \ifx\insertdate\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{date}\insertdate\par}%
+      \fi%     
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setbeamercovered{transparent}
+
+%% Add page numbers
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+%% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+
+\newcommand{\ignore}[1]{}
+\setbeamercovered{transparent=20}
+
+\setbeamercolor{alerted text}{fg=NegDark}
+
+\def\bigpause{\pause\bigskip}
+\def\medpause{\pause\medskip}
+
+\def\bigitem{\bigskip\item}
+\def\meditem{\medskip\item}
+
+
+\renewcommand{\Re}{\mathbb{R}}
+\newtheorem{proposition}{Proposition}
+
+
+
+\newcommand{\ub}{\underline{b}}
+\newcommand{\bb}{\overline{b}}
+\newcommand{\uc}{\underline{c}}
+\newcommand{\oc}{\overline{c}}
+\newcommand{\ovarphi}{\overline{\varphi}}
+\newcommand{\uv}{\underline{v}}
+\newcommand{\ov}{\overline{v}}
+\newcommand{\bv}{\mathbf{v}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\setlength{\parskip}{1em}
+\setbeamertemplate{itemize/enumerate body begin}{\vspace{-1em}}
+\addtobeamertemplate{block begin}{\setlength{\parskip}{0em}}{\setbeamertemplate{itemize/enumerate body begin}{}}

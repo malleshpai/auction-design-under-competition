@@ -1,0 +1,103 @@
+# Auction Design under Competition: seminar speaker notes
+Points to hit, slide by slide, for the 75-minute deck (slides.pdf: 27 main slides and 7 backup slides). Slide numbers match the footer of the deck.
+
+## The talk in one breath
+A monopolist designing an optimal auction can withhold (reserve) and misallocate (pool). Under perfect competition both vanish. Existing oligopoly models force second price auctions and rule out misallocation by assumption. When competing sellers choose hierarchical mechanisms, a seller's revenue equals a weighted integral of Cournot oligopoly revenues over market price levels, subject to Border's constraint. So Cournot's marginal revenue ψ_m(v) = v − (1/m)(1−F(v))/f(v) replaces Myerson's virtual value. In covered markets, monotone nonnegative ψ_m makes second price auctions an equilibrium against all hierarchical mechanisms for every n. When reserves bind, competition creates a new motive to misallocate: symmetric standard auctions always fail via an asking price, and for large n asymmetric duopoly profiles with ψ_1(r_H) < 0 also fail against a pool. Finally, Cournot's curvature bound E ≤ m+1 is tight across n, while for narrow pools at any fixed n the exact markup weight is ϖ(m) = (m+1)/(m²+2m−1) < 1/m.
+
+## Time budget
+- Motivation (slides 1–5): 9 minutes.
+- Model (slides 6–8): 7 minutes.
+- The Visit Stage (slides 9–12): 12 minutes. If short of time, do slide 11 in one minute.
+- Cournot Representation & Covered Markets (slides 13–20): 23 minutes. Core of the talk—do not rush slides 14–18.
+- Binding Reserves (slides 21–24): 14 minutes.
+- Sharpness & Conclusion (slides 25–27): 10 minutes.
+
+## Motivation
+### Slide 1. Title
+- One sentence: what does competition among sellers do to auction design beyond reserve prices—specifically, when does misallocation arise?
+### Slide 2. Two Distortions in Monopoly
+- Bulow & Roberts: Myerson's optimal auction is monopoly pricing against P(z) = F⁻¹(1−z) with marginal revenue ψ_1.
+- Two distinct distortions: withholding (reserve price) vs. misallocation (pooling an interval and rationing randomly). Regularity rules out pooling.
+### Slide 3. What Should We Expect in an Oligopoly?
+- Monopoly: withholding + possible misallocation. Perfect competition (McAfee, Peters & Severinov): both vanish.
+- Finite oligopoly literature (Burguet & Sákovics, Virág) fixes the format to SPA + reserve, so it studies withholding while assuming misallocation away.
+- Our question: when sellers choose reserves and pools, when does competition eliminate misallocation, when does it create new motives to misallocate, and what replaces regularity?
+### Slide 4. Covered Markets vs. Binding Reserves
+- One question splits the analysis: does a reserve exclude any buyers?
+- Left: covered market (a > 0, ρ < a), reserve only prices a lone visitor. Right: binding reserve (ρ ≥ a), buyers just above ρ earn almost zero surplus anywhere.
+### Slide 5. Roadmap of Results
+- Stress that Cournot is an exact identity, not an analogy: ψ_m scales the markup by 1/m, interpolating Myerson (m = 1) to McAfee (m → ∞).
+- Three headlines: covered markets (Cournot ψ_m), binding reserves (asking price + asymmetric duopoly profiles with ψ_1(r_H) < 0 fail), and sharpness (ϖ(m) vs. E ≤ m+1).
+
+## Model
+### Slide 6. Model
+- m ≥ 2 sellers (1 unit, cost 0), n ≥ 2 buyers, i.i.d. values from F on [a,1] with continuous positive density.
+- Three stages: simultaneous announcements → buyers learn values, see all mechanisms, and pick one seller → each seller runs his mechanism.
+### Slide 7. Hierarchical Mechanisms
+- Reserve r plus finitely many disjoint pooling intervals; ties inside a pool broken uniformly at random; Vickrey payments (truthful bidding weakly dominant).
+- Point to the plot: flat winning probability = misallocation.
+### Slide 8. Examples of Hierarchical Mechanisms
+- SPA, posted price, asking price (pool on the reserve), Myerson ironed auction.
+- Kleiner, Moldovanu & Strack (2021): extreme points of the Border-feasible set, defined ex post without knowing who visits.
+
+## The Visit Stage
+### Slide 9. Buyers' Visit Decisions and Standard Auctions
+- Effective distribution F_j(v): chance a buyer does not visit j with value > v. Under SPA, win prob is F_j(v)^(n−1).
+- Proposition 1: standard auctions form an exact potential game maximizing expected truncated welfare → unique effective distributions, uniform split under common ρ, cutoff w under asymmetric r_1 ≠ ρ.
+- Pooling breaks the marginal-contribution property, so this welfare potential no longer applies.
+### Slide 10. Uniqueness after Any Unilateral Deviation
+- Proposition 2: an SR visit strategy exists after any profile in M^m; against rivals at SPA(ρ), any unilateral deviation (r_1, P) has symmetric rivals, unique effective distributions and payoffs, and localized visits (uniform outside finitely many intervals where θ_1 ∈ {0,1}).
+### Slide 11. Why the Continuation Is Unique
+- Compare two continuations via ΔF = F̃_1 − F_1 and Δσ = σ̃ − σ (σ = s_1 − s_riv), with Δσ = 0 at the bottom and ΔF(1) = 0 at the top.
+- Between pools, positive/negative quadrants are invariant. Across a pool, the pair may flip sign but can never return to (0,0) (details in Backup 3). Contradicts ΔF(1) = 0.
+### Slide 12. Anatomy of a Single Interior Pool
+- Lemma 1: visits change only on a band [v_1, v_4] wider than the pool. Seller 1 serves the middle 1/m exclusively and loses both edges of his own pool.
+- Rivals' effective distribution is flat at 1−q* on the middle segment; interior pools and bands are in bijection.
+
+## Cournot Representation and Covered Markets
+### Slide 13. From Values to Quantities
+- Upper-tail quantities T(v) = 1−F_1(v) and q(v) = 1−F_riv(v) sum to 1−F(v), so v = P(T + (m−1)q).
+- Cournot revenue Π(t,q) = t P(t+(m−1)q); along the diagonal, marginal revenue is ∂_t Π(q,q) = ψ_m(P(mq)).
+### Slide 14. Deviations as Quantity Paths
+- Four panels: reserve increase, reserve cut, interior pool (staircase), asking price. Every deviation is a path t(q) in the same plane.
+- Proposition 3: exact revenue equals reserve baseline + Cournot integral − capture rent ℓ (with ℓ = 0 if all customers are indifferent), subject to Border's integral bound ∫_0^q (t(x)−x)(1−x)^(n−2) dx ≤ 0.
+### Slide 15. Intuition: Where Does Cournot Come From?
+- Indifferent customers keep rival surplus, which depends only on q(·). Subtracting from total value and integrating by parts in q leaves the Cournot rectangle Π(t(q),q) at each rival quantity level q, weighted by W(dq) = n(n−1)(1−q)^(n−2) dq.
+### Slide 16. Interior Pools and Cournot's Condition
+- Theorem 1: exact revenue change D for any finite collection of interior pools (disjoint or merged) equals ∫[Π(t(q),q) − Π(q,q)] W(dq), with weighted zero mean on each merged band.
+- If ψ_m is nondecreasing on the bands, D ≤ 0 for every n ≥ 2 and arbitrary widths.
+### Slide 17. Why Interior Pools Fail under Monotone ψ_m
+- Two-line proof visual: (1) tangent bound Π(t,q) − Π(q,q) ≤ ψ_m(P(mq))(t−q); (2) excess quantity t(q)−q has weighted mean zero, negative at top (high slope) and positive at bottom (low slope) → D ≤ 0.
+### Slide 18. Covered Markets: Main Equilibrium Theorem
+- Virág's (2010) unique symmetric candidate ρ* = (n−1)a / ((m−1)² + n − 1) < a.
+- Theorem 2: if ψ_m is nondecreasing on [a,1] and ψ_m(a) ≥ 0 (af(a) ≥ 1/m), then SPA(ρ*)^m is an equilibrium against all hierarchical mechanisms for every m,n ≥ 2.
+- Emphasize: self-contained—no separate reserve-game assumption needed!
+### Slide 19. Proof Sketch: Covered Markets
+- Two cases by final traffic t_0:
+  - Loses traffic (t_0 ≤ 1/m): tangent + Border beats by reserve increase R^S(t_0), and dR^S/dt_0 ≥ 0 since P + t_0 P' ≥ ψ_m ≥ 0.
+  - Gains traffic (t_0 > 1/m): diagonal tangent + covered-market rent lower bound reduces to Jensen's inequality.
+### Slide 20. Example: Non-Regular F, Yet Standard Auctions in Equilibrium
+- Duopoly, truncated Pareto on [1/2, 1] with tail exponent 1/2: E > 2 near 1/2 (monopolist irons), yet E < 3 everywhere and ψ_2(1/2) > 0 → SPA((n−1)/(2n))² is an equilibrium in M for every n ≥ 2 purely analytically.
+
+## Binding Reserves
+### Slide 21. Symmetric Binding Reserves Fail via Asking Prices
+- Theorem 3: at any binding ρ ∈ (0,1), a narrow asking price (ρ, {(ρ,β)}) gains D = (2n(m−1)/(m(m+3))) ρ A(ρ)^(n−1)(F(β)−F(ρ)) + o(β−ρ) = (n(m−1)/(2m)) ρ A(ρ)^(n−1) e + o(e) > 0 for every F, m, n. Neither ρ = 1 nor (when a = 0) ρ = 0 survives either.
+- Purely competitive first-order motive to misallocate.
+### Slide 22. Illustration (m = n = 2): Binding vs. Covered
+- Left: binding reserve (ρ = 0.15), leading-order line from Theorem 3 alongside solver values. Right: covered market (a = 0.4, ρ* = 0.2), analytical curve alongside solver values.
+### Slide 23. Intuition: Why an Asking Price?
+- Two forces: (1) net traffic capture—serving mass e at ρ loses (m+1)/(2m) e to congestion above the pool, netting (m−1)/(2m) e extra sales at ρ (each worth ρ A(ρ)^(n−1)); (2) standard auction unravels from below because extra congestion hits lowest types hardest; pooling flattens winning probability and holds [ρ, v_1] together.
+### Slide 24. Asymmetric Reserves Also Fail
+- With a = 0, no symmetric pure reserve equilibrium exists (Burguet & Sákovics 1999), though for m = 2, regular F, and large n an asymmetric pure reserve equilibrium r_L < r_H exists with r_H → zero of ψ_2 (He 2026).
+- Theorem 4: whenever 0 ≤ r_L < r_H < 1 and ψ_1(r_H) < 0, seller L strictly gains for all large n by raising his reserve toward r_H and placing an O(1/n) pool across the cutoff w_n (exact limit in Backup 6).
+
+## Sharpness and Conclusion
+### Slide 25. How Sharp Is Cournot's Condition?
+- Walk left to right across the 4 thresholds: 2 (Myerson) < m+1 (Cournot, sufficient all n, tight large n) < X̄ = 1+1/ϖ(m) (narrow pools at any fixed n) < 2m (fixed narrow bands as n → ∞).
+- Theorem 5 summarizes both sides cleanly.
+### Slide 26. Why the Gap Opens: Small Pools vs. Many Buyers
+- Left: narrow pools at fixed n put 2:1 weight on own concavity vs. rival cross-effect, yielding ϖ(m) < 1/m.
+- Right: as n → ∞, weight concentrates at the top of a fixed band, so wide pools pay whenever secant > tangent, driving the uniform bound down to E ≤ m+1.
+- Myerson to McAfee: fixed smooth F eventually has no interior pooling, yet sup_F m̄(F) = ∞.
+### Slide 27. Conclusion
+- Recap the 4 main insights cleanly and close on the 3 open questions (equilibrium when reserves bind, multi-seller pooling continuations, exact finite-n curvature threshold & beyond hierarchical mechanisms / multi-homing).
