@@ -1,6 +1,5 @@
 # Auction Design under Competition
 
-**Mallesh M. Pai** (Rice University)
 
 Paper, slides, and Lean 4 formalization for *Auction Design under Competition*.
 
